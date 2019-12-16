@@ -1,0 +1,136 @@
+@import vars
+@import fonts
+
+@import "../../node_modules/@glidejs/glide/src/assets/sass/glide.core"
+@import "../../node_modules/@glidejs/glide/src/assets/sass/glide.theme"
+// ============================
+// program FILE
+// ============================
+.program
+	&-section
+		.glide__slides
+		margin-bottom: 0
+		h1
+			margin-bottom: 36px
+	&-week
+		&__mobile
+			&.program-week__wrapper
+				display: none
+		&__wrapper
+			display: flex
+			justify-content: space-between
+			align-items: flex-start
+			margin-bottom: 28px
+		&__arrow
+			display: flex
+			font-size: 16px
+			font-weight: 600
+			line-height: 1.88
+			cursor: pointer
+			transition: opacity .3s
+			align-items: center
+			svg
+				width: 11px
+				height: auto
+			&.disabled
+				opacity: 0
+				cursor: default
+		&__left
+			svg
+				margin-right: 16px
+		&__right
+			svg
+				margin-left: 16px
+		&.glide
+			width: 55%
+		margin-left: auto
+		margin-right: auto
+		&-wrapper
+			display: flex
+			justify-content: space-between
+		&-item
+			display: flex
+			flex-direction: column
+			text-align: center
+			cursor: pointer
+			&__day
+				font-size: 16px
+				font-weight: 600
+				line-height: 1.88
+				margin-bottom: 12px
+				transition: font-weight .3s
+				&::after
+					content: ''
+					position: absolute
+					bottom: -4px
+					width: 100%
+					height: 4px
+					left: 0
+					background-color: $red
+					opacity: 0
+					transition: opacity .3s
+			&__date
+				opacity: 0.3
+				font-size: 16px
+				font-weight: 600
+				line-height: 1.88
+				margin: 0
+				transition: opacity .3s
+			&.active
+				.program-week-item
+					&__day
+						+Headline-4
+						line-height: 1.88
+						position: relative
+						&::after
+							opacity: 1
+					&__date
+						opacity: .6
+
+
+@media (max-width: 1024px)
+	.program
+		&-week
+			&__mobile
+				&.program-week__wrapper
+					display: block
+			&__desktop
+				display: none !important
+
+@media (max-width: 576px)
+	.program
+		&-section
+			.glide__slides
+			margin-bottom: 0
+			h1
+				+Headline-2()
+				margin-bottom: 41px
+		&-week
+			&__desktop
+				display: none !important
+			&__mobile
+				overflow-x: scroll
+				margin-left: -16px
+				margin-right: -16px
+				.program-week-wrapper
+					min-width: 700px
+					padding-left: 16px
+					padding-right: 16px
+			&__arrow
+				display: none
+			&-item
+				&__day
+					margin-bottom: 8px
+
+[data-theme="light"]
+	.program
+		&-week
+			&__arrow
+				svg
+					path
+						fill: $black
+			&-item
+				&.active
+					.program-week-item
+						&__day
+							color: $black

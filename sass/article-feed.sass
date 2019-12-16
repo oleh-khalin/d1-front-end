@@ -1,0 +1,191 @@
+@import vars
+@import fonts
+
+.article-feed
+	position: relative
+	display: flex
+	flex-wrap: wrap
+	margin: 0 -12px
+
+.article-card
+	flex: 999 0 25%
+	padding: 12px
+	&__inner
+		min-height: 462px
+		position: relative
+		overflow: hidden
+		z-index: 0
+		display: flex
+		transition: box-shadow .3s
+		&:hover
+			box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.5)
+			.article-card
+				&__content
+					opacity: 1
+					background-color: rgba($red, .7)
+	&__image
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		z-index: -1
+		background: no-repeat center center
+		background-size: cover
+	&__link
+		display: block
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		z-index: 1
+	&__content
+		background-color: rgba($black, .6)
+		padding: 25px
+		display: flex
+		flex-direction: column
+		justify-content: space-around
+		text-align: center
+		opacity: 1
+		transition: background-color .3s
+		width: 100%
+		&-bottom
+			position: absolute
+			bottom: 35px
+			left: 50%
+			transform: translateX(-50%)
+	&__meta
+		opacity: .6
+		+Footnote-14-Style()
+		display: flex
+		flex-direction: column
+		margin-top: 12px
+		time, span
+			white-space: nowrap
+	&__button
+		+Button()
+		svg
+			width: 11px
+			margin-left: 16px
+	&__header
+		h3
+			+Headline-2()
+
+.article-card-large
+	flex: 5 0 50%
+	.article-card
+		&__content
+			padding: 48px
+			background-color: rgba($black, .6)
+			justify-content: space-between
+			text-align: left
+			&-bottom
+				position: relative
+				transform: none
+				bottom: auto
+				left: auto
+		&__meta
+			display: block
+			time
+				margin-right: 16px
+				margin-bottom: 0
+		&__header
+			h3
+				+Headline-3()
+
+.article-card-advertisement
+	&__label
+		padding: 8px 12px
+		+Headline-4()
+		background-color: $red
+		position: absolute
+		top: 24px
+		left: 24px
+
+.article-feed-small
+	.article-card
+		&__inner
+			min-height: 256px
+		&__content
+			background-color: rgba($black, .7)
+			padding: 20px
+			justify-content: space-between
+			text-align: left
+			&-bottom
+				position: relative
+				transform: none
+				bottom: auto
+				left: auto
+		&__meta
+			opacity: 1
+			margin-top: 0
+			align-items: flex-start
+			time
+				margin-right: 16px
+				padding: 8px 12px
+				background-color: $red
+				+Headline-4()
+				margin-bottom: 12px
+			span
+				opacity: .6
+	.article-card-advertisement
+		&__label
+			top: 16px
+			left: 16px
+
+@media (max-width: 1024px)
+	.article-card
+		flex: 999 0 50%
+		&__inner
+			min-height: 270px
+		&__content
+			opacity: 1
+			background-color: rgba(black, .6)
+			padding: 24px
+			justify-content: flex-start
+			text-align: left
+			&-top
+				display: flex
+				flex-direction: column
+	.article-feed-large
+		.article-card
+			&__content
+				&-bottom
+					display: none
+			&__meta
+				flex-direction: row
+				order: 0
+				margin-top: 0
+				margin-bottom: 12px
+				time
+					margin-right: 16px
+			&__header
+				order: 1
+				h3, h4
+					+Headline-20-Style()
+		.article-card-large
+			.article-card
+				&__content
+					padding: 24px
+				&__header
+					h3, h4
+						+Headline-20-Style()
+	.article-feed-small
+		.article-card
+			&__inner
+				min-height: 270px
+			&__content-bottom
+				h4
+					+Headline-20-Style()
+
+@media (max-width: 576px)
+	.article-card
+		flex: 999 0 100%
+		display: none
+		&:nth-child(2), &:nth-child(3), &:first-child
+			display: block
+		&__inner
+			min-height: 230px
+
+[data-theme="light"]

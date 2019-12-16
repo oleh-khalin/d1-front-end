@@ -1,0 +1,51 @@
+@import vars
+@import fonts
+
+// ============================
+// TO BreadCrumbs FILE
+// ============================
+.breadcrumbs
+	padding: 15px 0
+	&-title
+		+Button()
+		&__last
+			opacity: .6
+	&-arrow
+		margin-left: 16px
+		margin-right: 16px
+		svg
+			width: 11px
+			height: auto
+
+@media (max-width: 576px)
+	.breadcrumbs
+		&-inner
+			display: flex
+			justify-content: space-between
+		&-title
+			display: none
+			&:first-of-type
+				display: inline
+		&-arrow
+			display: none
+			margin-right: 0
+			margin-left: 0
+			&:nth-last-child(2)
+				display: inline-block
+	.breadcrumbs-single
+		.breadcrumbs
+			&-title
+				&:first-of-type
+					display: none
+				&:nth-last-child(3)
+					display: inline !important
+
+[data-theme="light"]
+	.breadcrumbs
+		background-color: #f2f2f2
+		&-title
+			color: $black
+		&-arrow
+			svg
+				path
+					fill: $black

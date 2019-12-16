@@ -1,0 +1,77 @@
+@import vars
+@import fonts
+
+
+// ============================
+// ABOUT FILE
+// ============================
+
+.section-about
+	padding-bottom: 80px
+	border-top: 1px solid transparent
+	&:first-of-type
+		padding-bottom: 200px
+	&__inner
+		width: 62%
+		padding-left: 56px
+		h2
+			margin-bottom: 16px
+			//&:not(:first-of-type)
+			margin-top: 56px
+		h3
+			+Headline-20-Style()
+			margin-top: 56px
+			margin-bottom: 16px
+		p
+			margin-bottom: 28px
+	&__images
+		display: flex
+		margin-left: -12px
+		margin-right: -12px
+		margin-top: -128px
+		&-item
+			flex: 999 0 25%
+			padding: 0 12px
+			img
+				width: 100%
+
+@media (max-width: 1024px)
+	.section-about
+		&__inner
+			width: 100%
+			padding-right: 56px
+
+@media (max-width: 768px)
+	.section-about
+		&__images
+			flex-wrap: wrap
+			&-item
+				flex: 999 0 50%
+				padding: 12px
+
+@media (max-width: 576px)
+	.section-about
+		padding-bottom: 64px
+		&:first-of-type
+			padding-bottom: 120px
+		&__inner
+			padding-left: 0
+			padding-right: 0
+			h2
+				margin-bottom: 16px
+				margin-top: 32px
+			h3
+				margin-top: 32px
+				margin-bottom: 16px
+			p
+				font-size: 16px
+				margin-bottom: 24px
+		&__images
+			&-item
+				flex: 999 0 100%
+
+[data-theme="light"]
+	.section-about
+		&__inner
+			h3
+				color: $black

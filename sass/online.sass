@@ -1,0 +1,133 @@
+@import vars
+@import fonts
+
+// ============================
+// ONLINE FILE
+// ============================
+.online
+	&-video
+		img
+			width: 100%
+	&-section
+		padding-top: 56px
+		padding-bottom: 64px
+	&-current
+		display: flex
+		align-items: center
+		margin-top: 40px
+		&__time
+			+Headline-4()
+			background-color: $red
+			padding: 8px 17px
+			margin-right: 40px
+		&__title
+			margin-bottom: 8px
+		&__description
+			margin: 0
+			opacity: .6
+			font-size: 16px
+			font-weight: 600
+			line-height: 1.38
+
+.online
+	&-future
+		padding-top: 72px
+		padding-bottom: 94px
+		h2
+			margin-bottom: 20px
+		&__inner
+			width: 74%
+		&__item
+			display: flex
+			align-items: center
+			padding: 36px 0
+			&-time
+				+Headline-2()
+			&-image
+				background: no-repeat center center
+				background-size: cover
+				align-self: stretch
+				margin-left: 52px
+				margin-right: 56px
+				min-width: 128px
+			&-content
+				padding-top: 18px
+				padding-bottom: 18px
+			&-title
+				font-size: 24px
+				font-weight: 600
+				line-height: 1.25
+				margin-bottom: 8px
+			&-description
+				margin: 0
+				opacity: 0.6
+				font-size: 16px
+				font-weight: 600
+				line-height: 1.38
+		.button-block
+			text-align: left
+			display: inline-block
+
+@media (max-width: 1024px)
+	.online
+		&-future
+			&__inner
+				width: 100%
+
+@media (max-width: 576px)
+	.online
+		&-section
+			padding-top: 32px
+			padding-bottom: 32px
+		&-current
+			align-items: flex-start
+			flex-direction: column
+			margin-top: 32px
+			&__time
+				margin-right: 0
+				margin-bottom: 24px
+			&__title
+				+Headline-2()
+	.online
+		&-future
+			padding-top: 32px
+			padding-bottom: 32px
+			h2
+				+Headline-2()
+				margin-bottom: 8px
+			&__inner
+				width: 100%
+			&__item
+				padding: 24px 0
+				&-content
+					padding-top: 12px
+					padding-bottom: 12px
+				&-time
+					+Headline-4()
+				&-image
+					margin-left: 17px
+					margin-right: 16px
+					min-width: 56px
+				&-title
+					+Headline-20-Style()
+					margin-bottom: 0
+				&-description
+					display: none
+
+[data-theme="light"]
+	.online
+		&-section
+			background-color: $white
+		&-section-email
+			background-color: $white
+		&-future
+			background-color: $vapor
+			&__item
+				&-time
+					color: $black
+
+	@media (max-width: 576px)
+		.online
+			&-future
+				h2
+					color: $black

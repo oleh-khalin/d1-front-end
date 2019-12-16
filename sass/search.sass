@@ -1,0 +1,89 @@
+@import vars
+@import fonts
+
+// ============================
+// TO search FILE
+// ============================
+.search
+	&-section
+		padding-top: 56px
+		padding-bottom: 56px
+		h1
+			margin-bottom: 38px
+			margin-left: 56px
+	&-inner
+		width: 45%
+	&-item
+		display: flex
+		align-items: center
+		padding: 24px 0
+		margin-left: 72px
+		&__content
+			padding-top: 10px
+			padding-bottom: 10px
+		&__image
+			min-width: 96px
+			margin-right: 24px
+			background: no-repeat center center
+			background-size: cover
+			align-self: stretch
+		&__title
+			+Headline-4()
+			margin-bottom: 4px
+		&__meta
+			time
+				opacity: 0.8
+				+Footnote-14-Style()
+				margin-right: 12px
+			span
+				opacity: 0.6
+				+Footnote-14-Style()
+
+
+@media (max-width: 1024px)
+	.search
+		&-inner
+			width: 80%
+
+@media (max-width: 768px)
+	.search
+		&-inner
+			width: 100%
+		&-section
+			h1
+				margin-left: 0
+		&-item
+			margin-left: 0
+
+@media (max-width: 576px)
+	.search
+		&-section
+			padding-top: 32px
+			padding-bottom: 32px
+			h1
+				margin-bottom: 16px
+				+Headline-2()
+		&-item
+			padding: 16px 0
+			&__content
+				padding-top: 0
+				padding-bottom: 0
+			&__image
+				display: none
+
+[data-theme="light"]
+	.search
+		&-item
+			&__title
+				color: $black
+			&__meta
+				time
+					opacity: 0.8
+					color: $black
+				span
+					opacity: 0.6
+					color: $black
+
+	@media (max-width: 576px)
+		.search-section h1
+			color: $black
