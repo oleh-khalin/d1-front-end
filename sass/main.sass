@@ -27,6 +27,11 @@ body
 		overflow: hidden
 		height: 100%
 
+a
+	transition: color .3s
+	&:hover
+		text-decoration: none
+
 [data-theme="light"]
 	::placeholder
 		color: $black
@@ -870,17 +875,24 @@ td
 				+Button()
 				padding: 16px 0
 				display: inline-block
+				&:hover
+					color: $red
 	&__socials
 		margin-right: -16px !important
 		li
 			display: inline-block
 			a
 				padding: 10px 16px
-		svg
-			height: 16px
-			width: auto
-			path
-				fill: $white
+				svg
+					height: 16px
+					width: auto
+					path
+						fill: $white
+						transition: fill .3s
+				&:hover
+					svg
+						path
+							fill: $red
 
 
 
