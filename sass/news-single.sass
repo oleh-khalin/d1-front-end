@@ -42,6 +42,11 @@
 			padding: 7px 12px
 			margin-right: 16px
 			font-size: 12px
+			transition: background-color .3s
+			color: $white
+			&:hover
+				background-color: $red
+				color: $white
 		&-reading
 			opacity: 0.6
 			font-size: 16px
@@ -101,8 +106,16 @@
 		padding: 24px 42px 24px 24px
 		line-height: 1.4
 		color: #9b9b9b
-		a
+		display: block
+		transition: background-color .3s, color .3s
+		span
 			color: $red
+		&:hover
+			background-color: rgba(255, 255, 255, 0.1)
+			color: #9b9b9b
+			span
+				color: $white
+				text-decoration: underline
 	&__share
 		margin-top: 56px
 		display: flex

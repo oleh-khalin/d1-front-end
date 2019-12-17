@@ -213,20 +213,28 @@ h4
 
 .button
 	+Button()
+	transition: color .3s
 	svg
 		width: 11px
 		margin-left: 16px
 		path
 			fill: $white
+			transition: fill .3s
+	&:hover
+		color: $red
+		svg
+			path
+				fill: $red
 	&-block
 		text-align: center
-		display: block
 		padding: 20px 0
 		display: inline-block
 	&-action
 		padding: 10px 33px
 		background-color: $red
 		border: none
+		&:hover
+			color: $white
 	&-mobile-show
 		display: none
 	&-download
@@ -236,8 +244,16 @@ h4
 		line-height: 1.4
 		color: $white
 		display: inline-block
+		transition: box-shadow .3s, background-color .3s, color .3s
+		&:hover
+			box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.5)
+			background-color: rgba(0, 0, 0, 0.3)
+			color: $white
+			span
+				opacity: 1
 		span
 			opacity: 0.6
+			transition: opacity .3s
 		svg
 			margin-left: 75px
 			width: 16px
@@ -360,7 +376,7 @@ h4
 				padding: 0 24px
 				position: relative
 				transition: color .3s, background-color .3s
-				&:hover
+				&:not(.header-main__menu-nav-home):not(.active):hover
 					background-color: rgba(#d8d8d8, .05)
 					color: $red
 				&.header-main__menu-nav-home
@@ -369,6 +385,7 @@ h4
 					padding-left: 0
 					padding-right: 0
 				&.active
+					cursor: default
 					&::after
 						content: ''
 						position: absolute
@@ -390,12 +407,29 @@ h4
 				svg
 					height: 24px
 					width: auto
-					path
+					path, ellipse
 						fill: $white
+						transition: fill .3s
+				&:hover
+					path, ellipse
+						fill: $red
 		&-more
 			display: flex
 			align-items: center
 			cursor: pointer
+			padding-left: 15px
+			padding-right: 15px
+			margin-left: -15px
+			margin-right: -15px
+			transition: background-color .3s, color .3s
+			&:hover
+				background-color: rgba(#d8d8d8, .05)
+				color: $red
+				.header-main__menu-more__open
+					span
+						background-color: $red
+						&::after, &::before
+							background-color: $red
 			&__socials
 				margin-left: -16px
 				li
@@ -431,7 +465,7 @@ h4
 					background-color: $white
 					display: block
 					position: relative
-					transition: all .3s ease
+					transition: background-color .3s
 					border-radius: 3px
 					&::before, &::after
 						border-radius: 3px
@@ -441,6 +475,7 @@ h4
 						position: absolute
 						background-color: $white
 						left: 0
+						transition: background-color .3s
 					&::before
 						top: -7px
 					&::after
@@ -496,7 +531,7 @@ h4
 						background-color: $white
 						display: block
 						position: relative
-						transition: all .3s ease
+						transition: background-color .3s
 						border-radius: 3px
 						transform: rotate(45deg)
 						&::before, &::after
@@ -507,11 +542,17 @@ h4
 							position: absolute
 							background-color: $white
 							left: 0
+							transition: background-color .3s
 						&::before
 							opacity: 0
 						&::after
 							bottom: -7px
 							transform: translateY(-7px) rotate(90deg)
+					&:hover
+						span
+							background-color: $red
+							&::after, &::before
+								background-color: $red
 				&-content
 					padding-left: 164px
 					display: flex
@@ -529,11 +570,16 @@ h4
 				a
 					padding: 24px 0
 					display: inline-block
+					&:hover
+						color: $red
 			&__colors
 				a
 					&:first-child
 						margin-right: 40px
+					&:not(.active):hover
+						color: $red
 					&.active
+						cursor: default
 						+Headline-4()
 						position: relative
 						&::after
@@ -550,6 +596,9 @@ h4
 				align-items: flex-start
 				span
 					margin-bottom: 16px
+				a
+					&:hover
+						color: $red
 			&__socials
 				ul, li
 					list-style-type: none
@@ -557,12 +606,22 @@ h4
 					padding: 0
 				li
 					display: inline-block
+					a
+						svg
+							path, ellipse
+								transition: fill .3s
+						&:hover
+							svg
+								path, ellipse
+									fill: $red
 			&__policy
 				a
 					font-size: 16px
 					font-weight: 600
 					line-height: 1.88
 					text-decoration: underline
+					&:hover
+						color: $red
 	&-calendar
 		&__outer
 			width: 100vw
@@ -853,6 +912,9 @@ td
 				border-bottom: 1px solid $white
 				margin-right: 40px
 				padding: 2px 0
+				transition: border-bottom-color .3s
+				&:focus
+					border-bottom: 1px solid $red
 
 
 

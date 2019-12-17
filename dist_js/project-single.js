@@ -13,12 +13,12 @@ document.addEventListener("DOMContentLoaded", function() {
     projectPlayerGlide.go('>');
   });
 
-  const projectSingleItems = document.querySelectorAll('.project-player__bottom-item');
+  const projectSingleItems = document.querySelectorAll('.project-player__bottom-item__inner');
   projectSingleItems.forEach(el => {
     el.addEventListener('click', () => {
       if (el.classList.contains('active'))
         return;
-      document.querySelector('.project-player__bottom-item.active').classList.remove('active');
+      document.querySelector('.project-player__bottom-item__inner.active').classList.remove('active');
       el.classList.add('active');
       console.log(el.getAttribute('data-image') + ' - ' + el.getAttribute('data-video'));
     });

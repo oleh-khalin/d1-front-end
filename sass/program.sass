@@ -32,9 +32,16 @@
 			svg
 				width: 11px
 				height: auto
+				path
+					transition: fill .3s
 			&.disabled
 				opacity: 0
 				cursor: default
+			&:hover
+				color: $red
+				svg
+					path
+						fill: $red
 		&__left
 			svg
 				margin-right: 16px
@@ -43,22 +50,36 @@
 				margin-left: 16px
 		&.glide
 			width: 55%
+			margin-top: -16px
+			margin-bottom: -13px
+			.glide__slides
+				margin-bottom: 0
 		margin-left: auto
 		margin-right: auto
 		&-wrapper
 			display: flex
-			justify-content: space-between
+			//justify-content: space-between
 		&-item
+			flex: 1
 			display: flex
 			flex-direction: column
 			text-align: center
 			cursor: pointer
+			padding-top: 16px
+			padding-bottom: 13px
+			transition: background-color .3s
+			&:not(.active):hover
+				background-color: rgba(#d8d8d8, .05)
+				//.program-week-item__day
+				//	color: $red
 			&__day
 				font-size: 16px
 				font-weight: 600
 				line-height: 1.88
 				margin-bottom: 12px
-				transition: font-weight .3s
+				transition: font-weight .3s, color .3s
+				margin-left: auto
+				margin-right: auto
 				&::after
 					content: ''
 					position: absolute
@@ -77,6 +98,7 @@
 				margin: 0
 				transition: opacity .3s
 			&.active
+				cursor: default
 				.program-week-item
 					&__day
 						+Headline-4

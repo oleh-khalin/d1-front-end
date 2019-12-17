@@ -76,9 +76,6 @@
 		&-item
 			flex: 999 0 25%
 			padding: 12px
-			&.active
-				.project-player__bottom-item__image
-					box-shadow: inset 0 0 0 2px $red
 			//border: solid 2px $red
 			&__inner
 				min-height: 256px
@@ -88,6 +85,16 @@
 				display: flex
 				transition: box-shadow .3s
 				cursor: pointer
+				position: relative
+				&.active
+					cursor: default
+					.project-player__bottom-item__image
+						box-shadow: inset 0 0 0 2px $red
+				&:not(.active):hover
+					.project-player__bottom-item__content
+						opacity: 0
+					.project-player__bottom-item__hover
+						opacity: 0.4
 			&__image
 				position: absolute
 				top: 0
@@ -103,6 +110,16 @@
 				width: 100%
 				align-self: flex-end
 				height: 100%
+				transition: opacity .3s
+			&__hover
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				opacity: 0
+				background-color: $red
+				transition: opacity .3s
 
 [data-theme="light"]
 	.project-player
