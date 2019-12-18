@@ -27,7 +27,7 @@
 			font-weight: 600
 			line-height: 1.88
 			cursor: pointer
-			transition: opacity .3s
+			transition: opacity .3s, color .3s
 			align-items: center
 			svg
 				width: 11px
@@ -151,7 +151,13 @@
 				svg
 					path
 						fill: $black
+				&:hover
+					svg
+						path
+							fill: $red
 			&-item
+				&:not(.active):hover
+					background-color: rgba($black, .05)
 				&.active
 					.program-week-item
 						&__day

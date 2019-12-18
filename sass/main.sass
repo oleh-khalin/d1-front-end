@@ -69,6 +69,12 @@ a
 			svg
 				path
 					fill: $red
+			&:hover
+				box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.1)
+				background-color: $white
+				color: $black
+				span
+					opacity: 1
 
 	.header-main
 		&__menu
@@ -99,17 +105,23 @@ a
 			&-nav
 				a
 					color: $black
+					&:not(.header-main__menu-nav-home):not(.active):hover
+						background-color: rgba($black, .05)
+						color: $red
 					&.active
 						&::after
 							background-color: $black
 			&-icons
 				span
 					svg
-						path
+						path, ellipse
 							fill: $black
-						ellipse
-							fill: $black
+					&:hover
+						path, ellipse
+							fill: $red
 			&-more
+				&:hover
+					background-color: rgba($black, .05)
 				&__socials
 					svg
 						path
@@ -138,18 +150,21 @@ a
 		&-calendar
 			&__element
 				&-title
+					transition: color .3s
+				&:hover
+					color: $white
+					.header-main-calendar__element
+						&-title
+							color: $white
+				&-title
 					font-size: 16px
 				&-time
 					opacity: 0.6
-				&-arrow
-					svg
-						path
-							fill: $black
 			&__window
 				background-color: $white
 				&-inner
 					&__dark
-						background-color: $dire-wolf
+						background-color: #eaeaea
 					h2
 						text-align: center
 				&-close
@@ -162,6 +177,26 @@ a
 						background-color: $dire-wolf
 					a
 						color: $black
+					a.button-block
+						&:hover
+							color: $red
+	#monthandyearspan
+		color: $black
+	#btnPrev, #btnNext
+		svg
+			polygon
+				fill: $black
+		&:hover
+			background-color: rgba($black, .05)
+	.daysheader
+		color: $black
+	.currentmonthdates
+		color: $black
+		&::before
+			background-color: rgba($black, .05)
+	.futuremonthdates
+		color: $black
+
 
 	.footer-main
 		background-color: $white
@@ -180,6 +215,7 @@ a
 			form
 				input
 					border-bottom: 1px solid $black
+					color: $black
 
 	.section__filters
 		a
@@ -399,6 +435,15 @@ h4
 			align-items: center
 			display: flex
 			margin-left: auto
+			.theme-switch
+				.theme-switch-moon
+					display: inline-block
+				.theme-switch-sun
+					display: none
+				input:checked + .theme-switch-sun + .theme-switch-moon
+					display: none
+				input:checked + .theme-switch-sun
+					display: inline-block
 			label
 				margin-bottom: 0
 			span
@@ -730,7 +775,7 @@ h4
 					background-color: $white
 					display: block
 					position: relative
-					transition: all .3s ease
+					transition: background-color .3s
 					border-radius: 3px
 					transform: rotate(45deg)
 					&::before, &::after
@@ -740,12 +785,18 @@ h4
 						width: 100%
 						position: absolute
 						background-color: $white
+						transition: background-color .3s
 						left: 0
 					&::before
 						opacity: 0
 					&::after
 						bottom: -7px
 						transform: translateY(-7px) rotate(90deg)
+				&:hover
+					span
+						background-color: $red
+						&::after, &::before
+							background-color: $red
 			&-content
 				display: flex
 				flex-direction: column
@@ -798,12 +849,17 @@ td
 
 #btnPrev
 	text-decoration: none
-	padding-left: 10px
+	padding: 15px 17px
+	margin-left: -7px
+	display: flex
+	transition: background-color .3s
 	svg
 		height: 13px
 		width: auto
 		polygon
-			fill: rgba($white, .25)
+			fill: $white
+	&:hover
+		background-color: rgba(#d8d8d8, .05)
 
 #monthandyearspan
 	font-size: 16px
@@ -813,12 +869,17 @@ td
 
 #btnNext
 	text-decoration: none
-	padding-right: 10px
+	padding: 15px 17px
+	margin-right: -7px
+	display: flex
+	transition: background-color .3s
 	svg
 		height: 13px
 		width: auto
 		polygon
-			fill: rgba($white, .25)
+			fill: $white
+	&:hover
+		background-color: rgba(#d8d8d8, .05)
 
 #divcalendartable
 	clear: both
@@ -841,6 +902,24 @@ td
 	font-size: 14px
 	color: $white
 	cursor: pointer
+	position: relative
+	z-index: 1
+	&::before
+		content: ''
+		position: absolute
+		width: 32px
+		height: 32px
+		left: 50%
+		top: 50%
+		transform: translate(-50%, -50%)
+		z-index: -1
+		border-radius: 50%
+		background-color: rgba(#d8d8d8, .05)
+		opacity: 0
+		transition: opacity .3s
+	&:hover
+		&::before
+			opacity: 1
 
 .todaydate
 	font-family: Roboto
