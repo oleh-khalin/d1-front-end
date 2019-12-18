@@ -75,7 +75,11 @@ a
 				color: $black
 				span
 					opacity: 1
-
+	@media(max-width: 1024px)
+		.header-main__menu-more__window-content
+			background-color: #eaeaea
+	.header-main__menu-more__window-content-darker
+		background-color: $white
 	.header-main
 		&__menu
 			&-search
@@ -117,8 +121,9 @@ a
 						path, ellipse
 							fill: $black
 					&:hover
-						path, ellipse
-							fill: $red
+						>svg
+							path, ellipse
+								fill: $red
 			&-more
 				&:hover
 					background-color: rgba($black, .05)
@@ -167,6 +172,7 @@ a
 						background-color: #eaeaea
 					h2
 						text-align: center
+						color: $black
 				&-close
 					span
 						background-color: $black
@@ -265,6 +271,10 @@ h4
 		text-align: center
 		padding: 20px 0
 		display: inline-block
+		&-wrapper
+			width: 100%
+			display: flex
+			justify-content: center
 	&-action
 		padding: 10px 33px
 		background-color: $red
@@ -456,8 +466,9 @@ h4
 						fill: $white
 						transition: fill .3s
 				&:hover
-					path, ellipse
-						fill: $red
+					>svg
+						path, ellipse
+							fill: $red
 		&-more
 			display: flex
 			align-items: center

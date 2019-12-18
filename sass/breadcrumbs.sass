@@ -30,12 +30,19 @@
 			display: none
 			&:first-of-type
 				display: inline
+				padding-left: 26px
 		&-arrow
 			display: none
 			margin-right: 0
 			margin-left: 0
 			&:nth-last-child(2)
 				display: inline-block
+				position: absolute
+				left: 16px
+				top: 50%
+				transform: translateY(-50%)
+				svg
+					transform: rotate(180deg)
 	.breadcrumbs-single
 		.breadcrumbs
 			&-title
